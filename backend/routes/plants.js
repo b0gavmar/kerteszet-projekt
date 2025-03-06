@@ -1,9 +1,9 @@
 import express from "express";
-import { dbQuery } from "../database";
+import { dbQuery } from "../database.js";
 
-const router = express.router();
+const router = express.Router();
 
-router.get("/pants", async (req, res, next) => {
+router.get("/plants", async (req, res, next) => {
   try {
     const plants = await dbQuery("SELECT * FROM plants");
     res.status(200).json(plants);
