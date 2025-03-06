@@ -21,9 +21,7 @@ onMounted(async () => {
               <strong>Kategória:</strong> {{ plant.category }} <br />
               <strong>Ár:</strong> {{ plant.price }}
             </p>
-            <button class="btn btn-primary w-100" @click="">
-              Szerkesztés
-            </button>
+            <button class="btn btn-primary w-100" @click="">Szerkesztés</button>
           </div>
         </div>
       </div>

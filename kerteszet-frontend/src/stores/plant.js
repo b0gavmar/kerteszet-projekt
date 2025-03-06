@@ -4,13 +4,12 @@ import axios from 'axios'
 
 export const usePlantStore = defineStore('plant', () => {
   const plants = ref({})
-  
-  const fetchPlants = async() =>{
-    try{
-      const response = await axios.get("http://localhost:3000/plants")
+
+  const fetchPlants = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/plants')
       plants.value = response.data
-    }
-    catch(err){
+    } catch (err) {
       console.log(err)
     }
   }

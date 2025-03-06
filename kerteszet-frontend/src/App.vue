@@ -4,11 +4,10 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-
-      <nav>
-        <RouterLink to="/">Növények</RouterLink>
-        <RouterLink to="/about">Új hozzáadása</RouterLink>
-      </nav>
+    <nav>
+      <RouterLink to="/">Növények</RouterLink>
+      <RouterLink to="/newplant">Új hozzáadása</RouterLink>
+    </nav>
   </header>
 
   <RouterView />
