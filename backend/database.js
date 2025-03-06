@@ -44,4 +44,4 @@ function dbRun(sql,params = []){
     });
 }
 
-export {db, initDb}
+export {db, dbQuery, dbRun, initDb}
