@@ -1,7 +1,7 @@
 <script setup>
-import { ref} from 'vue'
+import { ref } from 'vue'
 import { usePlantStore } from '@/stores/plant.js'
-import {useRouter} from 'vue-router'
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const plantStore = usePlantStore()
@@ -18,11 +18,11 @@ const isValid = ref(true)
 const perennial = ref(false)
 
 const addNewPlant = async () => {
-  newPlant.value.perennial = perennial
+  newPlant.value.perennial = perennial.value
   if (
     newPlant.value.name.trim() == '' ||
     newPlant.value.category.trim() == '' ||
-    newPlant.value.price.trim() == ''
+    isNaN(newPlant.value.price)
   ) {
     isValid.value = false
     return
