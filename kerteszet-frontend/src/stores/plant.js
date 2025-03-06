@@ -14,5 +14,13 @@ export const usePlantStore = defineStore('plant', () => {
     }
   }
 
-  return { plants, fetchPlants }
+  const addPlant = async (newPlant) => {
+    try {
+      await axios.post('http://localhost:3000/plants',newPlant)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  return { plants, fetchPlants, addPlant }
 })
