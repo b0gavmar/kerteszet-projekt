@@ -7,5 +7,15 @@
     "sqlite3": "^5.1.7",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"
-  }
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "kerteszet-backend",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "b0gavmar",
+  "license": "ISC"
 }
