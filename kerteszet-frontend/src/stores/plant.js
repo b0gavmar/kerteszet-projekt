@@ -16,11 +16,28 @@ export const usePlantStore = defineStore('plant', () => {
 
   const addPlant = async (newPlant) => {
     try {
-      await axios.post('http://localhost:3000/plants',newPlant)
+      await axios.post('http://localhost:3000/plants', newPlant)
     } catch (err) {
       console.log(err)
     }
   }
 
-  return { plants, fetchPlants, addPlant }
+  const updatePlant = async (updatedPlant) => {
+    try {
+      console.log(updatedPlant.id)
+      await axios.put(`http://localhost:3000/plants/${updatedPlant.id}`, updatedPlant)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const deletePlant = async (plantId) => {
+    try {
+      await axios.delete(`http://localhost:3000/plants/${plantId}`)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  return { plants, fetchPlants, addPlant, updatePlant, deletePlant }
 })

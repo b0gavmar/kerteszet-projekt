@@ -27,16 +27,16 @@ router.post("/plants", async (req, res, next) => {
 router.put("/plants/:id", async (req, res, next) => {
   try {
     await dbQuery(
-      "UPDATE plants WHERE id = ? SET (name,perennial,category,price) VALUES (?,?,?,?)",
+      "UPDATE plants SET name = ?, perennial = ?, category = ?, price = ? WHERE id = ?",
       [
-        req.params.id,
         req.body.name,
         req.body.perennial,
         req.body.category,
         req.body.price,
+        req.params.id,
       ]
     );
-    res.status(204).send();
+    res.status(200).send({ message: req.params.id });
   } catch (err) {
     next(err);
   }

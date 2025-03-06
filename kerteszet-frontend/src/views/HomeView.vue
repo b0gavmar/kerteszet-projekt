@@ -1,8 +1,14 @@
 <script setup>
 import { usePlantStore } from '@/stores/plant.js'
 import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const plantStore = usePlantStore()
+
+const editPlant = (id) => {
+  router.push('/editplant/' + id)
+}
 
 onMounted(async () => {
   await plantStore.fetchPlants()
@@ -21,7 +27,7 @@ onMounted(async () => {
               <strong>Kategória:</strong> {{ plant.category }} <br />
               <strong>Ár:</strong> {{ plant.price }}
             </p>
-            <button class="btn btn-primary w-100" @click="">Szerkesztés</button>
+            <button class="btn btn-primary w-100" @click="editPlant(plant.id)">Szerkesztés</button>
           </div>
         </div>
       </div>
