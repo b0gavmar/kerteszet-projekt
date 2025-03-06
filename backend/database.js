@@ -1,4 +1,4 @@
-import sqlite3 from sqlite3
+import sqlite3 from "sqlite3";
 
 const db = new sqlite3.Database("./database.sqlite3");
 
@@ -9,7 +9,7 @@ const initDb = async() =>{
         name TEXT,
         perennial INTEGER,
         category TEXT,
-        price REAL,
+        price REAL
         )`);
 
     const plants = [
@@ -21,16 +21,25 @@ const initDb = async() =>{
         }
     ];
 
-    for(const plant in plants){
+    for(const plant of plants){
         await dbRun("INSERT INTO plants (name,perennial,category,price) VALUES(?,?,?,?)",[plant.name,plant.perennial,plant.category,plant.price]);
     }
 }
 
 function dbQuery(sql, params = []){
     return new Promise((resolve,reject) => {
-        Database.all(sql,params,(err,rows) => {
+        db.all(sql,params,(err,rows) => {
             if(err) reject(err);
             else resolve(rows);
+        });
+    });
+}
+
+function dbRun(sql,params = []){
+    return new Promise((resolve,reject) =>{
+        db.run(sql,params,(err) => {
+            if(err) reject(err);
+            else resolve();
         });
     });
 }
