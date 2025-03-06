@@ -26,4 +26,13 @@ const initDb = async() =>{
     }
 }
 
+function dbQuery(sql, params = []){
+    return new Promise((resolve,reject) => {
+        Database.all(sql,params,(err,rows) => {
+            if(err) reject(err);
+            else resolve(rows);
+        });
+    });
+}
+
 export {db, initDb}
