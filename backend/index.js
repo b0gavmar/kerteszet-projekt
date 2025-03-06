@@ -1,11 +1,11 @@
 import express from "express";
 import cors from "cors";
-import plantRoutes from '.routes/plants.js'
+import plantRoutes from ".routes/plants.js";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use("/",plantRoutes);
+app.use("/", plantRoutes);
 
 app.use((err, req, res, next) => {
   console.log(err.stack);
